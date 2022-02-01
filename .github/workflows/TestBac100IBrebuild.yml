@@ -5,7 +5,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: |
-          choco install visualstudio2019buildtools --package-parameters --allWorkloads -y
+          choco install visualstudio2019buildtools -y
           choco install wget -y
           cd C:\
           wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
@@ -20,4 +20,7 @@ jobs:
             git clone https://github.com/PavelGo3110/TestBAC-100-.git
             cd C:\TestBAC-100-
             $env:Path = 'C:\Program Files (x86)\IncrediBuild'
-            BuildConsole.exe TestBAC(100).sln /rebuild /cfg="Debug|x64"
+            BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
+            
+            
+#choco install visualstudio2019buildtools --package-parameters --allWorkloads -y
