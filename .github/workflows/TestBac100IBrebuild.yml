@@ -12,8 +12,8 @@ jobs:
 #          choco install visualstudio2019buildtools -y
                     
                     
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.1
+#      - name: Add msbuild to PATH
+#        uses: microsoft/setup-msbuild@v1.1
         
 #      - name: Clone Repository
       - run: |
