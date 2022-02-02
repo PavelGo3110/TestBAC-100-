@@ -20,8 +20,9 @@ jobs:
             cd C:\
             git clone https://github.com/PavelGo3110/TestBAC-100-.git
             cd C:\TestBAC-100-
-            $env:Path = 'C:\Program Files (x86)\IncrediBuild'
-            BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
+            msbuild TestBAC(100).sln /t:rebuild
+#            $env:Path = 'C:\Program Files (x86)\IncrediBuild'
+#            BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
             
             
 #choco install visualstudio2019buildtools --package-parameters --allWorkloads -y
