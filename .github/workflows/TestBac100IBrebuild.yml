@@ -4,24 +4,25 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
-      - run: |
-          choco install wget -y
-          cd C:\
-          wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
-          ./IBSetupConsole.exe /Install /Components=Agent /Coordinator=ec2-3-70-128-83.eu-central-1.compute.amazonaws.com /AddToPath=ON /Agent:InstallAddins=OFF
+#      - run: |
+#          choco install wget -y
+#          cd C:\
+#          wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
+#          ./IBSetupConsole.exe /Install /Components=Agent /Coordinator=ec2-3-70-128-83.eu-central-1.compute.amazonaws.com /AddToPath=ON /Agent:InstallAddins=OFF
 #          choco install visualstudio2019buildtools -y
                     
                     
-#      - name: Add msbuild to PATH
-#        uses: microsoft/setup-msbuild@v1.1
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
         
 #      - name: Clone Repository
       - run: |
             cd C:\
             git clone https://github.com/PavelGo3110/TestBAC-100-.git
             cd C:\TestBAC-100-
-            $env:Path = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin'
             msbuild TestBAC(100).sln /t:rebuild
+#            $env:Path = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin'
+            
 #            $env:Path = 'C:\Program Files (x86)\IncrediBuild'
 #            BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
             
