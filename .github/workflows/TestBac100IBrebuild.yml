@@ -15,8 +15,8 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
               
-#      - name: Clone Repository
-      - run: |
+      - name: Clone Repository
+        run: |
             cd C:\
             git clone https://github.com/PavelGo3110/TestBAC-100-.git
             cd C:\TestBAC-100-
@@ -24,11 +24,14 @@ jobs:
             $env:Path = 'C:\Program Files (x86)\IncrediBuild'
             BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
             
-      - name: Upload logs    
+      - name: Upload artifacts    
         uses: actions/upload-artifact@v2
         with:
            name: my-artifact
-           path: C:\Program Files (x86)\IncrediBuild\History
+           path: |
+             C:\Program Files (x86)\IncrediBuild\History
+             C:\Program Files (x86)\IncrediBuild\Logs
+             
             
             
 #           cd C:\Windows\System32
