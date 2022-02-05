@@ -9,7 +9,6 @@ jobs:
           cd C:\
           wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
           ./IBSetupConsole.exe /Install /Components=Agent /Coordinator=ec2-3-70-128-83.eu-central-1.compute.amazonaws.com /AddToPath=ON /Agent:InstallAddins=OFF
-          New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
 #          choco install visualstudio2019buildtools -y
                     
                     
@@ -23,6 +22,7 @@ jobs:
             cd C:\TestBAC-100-
             $env:Path = 'C:\Windows\System32'
             $env:Path = 'C:\Program Files (x86)\IncrediBuild'
+            New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
             BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
             
       - name: Upload artifacts    
