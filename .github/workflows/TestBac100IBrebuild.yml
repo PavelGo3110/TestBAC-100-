@@ -9,13 +9,14 @@ jobs:
           cd C:\
           wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
           ./IBSetupConsole.exe /Install /Components=Agent /Coordinator=ec2-3-70-128-83.eu-central-1.compute.amazonaws.com /AddToPath=ON /Agent:InstallAddins=OFF
+          New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
 #          choco install visualstudio2019buildtools -y
                     
                     
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
               
-      - name: Clone Repository
+      - name: Clone Repository and Rebuild with Incredibuild
         run: |
             cd C:\
             git clone https://github.com/PavelGo3110/TestBAC-100-.git
