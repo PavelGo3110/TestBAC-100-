@@ -9,7 +9,7 @@ jobs:
           cd C:\
           wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
           ./IBSetupConsole.exe /Install /Components=Agent /Coordinator=ec2-3-70-128-83.eu-central-1.compute.amazonaws.com /AddToPath=ON /Agent:InstallAddins=OFF
-          Get-ItemProperty -Path HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log
+          Get-ItemProperty -Path HKCU:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log
 #          choco install visualstudio2019buildtools -y
                     
                     
