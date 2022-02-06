@@ -24,8 +24,8 @@ jobs:
             cd C:\TestBAC-100-
             $env:Path = 'C:\Windows\System32'
             $env:Path = 'C:\Program Files (x86)\IncrediBuild'
-            New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
-            BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64"
+#            New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
+            BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64" /usemsbuild
             
       - name: Upload artifacts    
         uses: actions/upload-artifact@v2
