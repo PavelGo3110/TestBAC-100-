@@ -4,18 +4,14 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
-      - run: |
+      -  run: |
           choco install wget -y
           cd C:\
           wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/IBSetupConsole.exe" -O "C:\IBSetupConsole.exe"
           ./IBSetupConsole.exe /Install /Components=Agent /Coordinator=ec2-3-70-128-83.eu-central-1.compute.amazonaws.com /AddToPath=ON /Agent:InstallAddins=OFF
           New-Item -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log'
           New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
-          Get-ChildItem -Path HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\ | Select-Object Name
-#          Get-ItemProperty -Path HKCU:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log
-#          choco install visualstudio2019buildtools -y
-                    
-                    
+                                      
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
               
@@ -27,8 +23,7 @@ jobs:
             $env:Path = 'C:\Windows\System32'
             $env:Path = 'C:\Program Files (x86)\IncrediBuild'
             BuildConsole.exe 'C:\TestBAC-100-\TestBAC(100).sln' /rebuild /cfg="Debug|x64" /usemsbuild
-                                 
-            
+                                             
       - name: Upload artifacts    
         uses: actions/upload-artifact@v2
         with:
@@ -36,9 +31,3 @@ jobs:
            path: |
              C:\Program Files (x86)\IncrediBuild\History
              C:\Program Files (x86)\IncrediBuild\Logs
-             
-                      
-#            msbuild TestBAC(100).sln /t:rebuild
-#            $env:Path = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin'
-            
-#choco install visualstudio2019buildtools --package-parameters --allWorkloads -y
