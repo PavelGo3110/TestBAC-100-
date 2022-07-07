@@ -12,12 +12,6 @@ jobs:
           New-Item -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log'
           New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
      
-      - name: Tailscale
-        uses: tailscale/github-action@v1
-        with:
-          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-
-       
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
               
