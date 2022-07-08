@@ -11,7 +11,7 @@ jobs:
           ./ibsetup_v10_2636_console.exe /Install /Components=Agent /Coordinator=18.196.81.226 /Agent:AgentRole=Initiator /Agent:InitiatorType=Floating /Agent:OpenFirewall=ON /AddToPath=ON /Agent:InstallAddins=OFF
           New-Item -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log'
           New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
-                                      
+     
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
               
