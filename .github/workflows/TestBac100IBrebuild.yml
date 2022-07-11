@@ -8,7 +8,7 @@ jobs:
           choco install wget -y
           cd C:\
           wget "https://githubpaveltest.s3.eu-central-1.amazonaws.com/ibsetup_v10_2636_console.exe" -O "C:\ibsetup_v10_2636_console.exe"
-          ./ibsetup_v10_2636_console.exe /Install /Components=Agent /Coordinator=3.67.194.114 /Agent:AgentRole=Initiator /Agent:InitiatorType=Floating /Agent:OpenFirewall=ON /AddToPath=ON /Agent:InstallAddins=OFF
+          ./ibsetup_v10_2636_console.exe /Install /Components=Agent /Coordinator=35.156.116.221 /Agent:AgentRole=Initiator /Agent:InitiatorType=Floating /Agent:OpenFirewall=ON /AddToPath=ON /Agent:InstallAddins=OFF
           New-Item -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log'
           New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Xoreax\IncrediBuild\Log' -Name 'Level' -Value "4" -PropertyType String -Force
      
